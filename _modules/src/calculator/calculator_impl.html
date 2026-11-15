@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>src.calculator.calculator_impl &#8212; py-fun 1.0.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/classic.css?v=2bf1fcf8" />
+    
+    <script src="../../../_static/documentation_options.js?v=8d563738"></script>
+    <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">py-fun 1.0.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" accesskey="U">Module code</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">src.calculator.calculator_impl</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for src.calculator.calculator_impl</h1><div class="highlight"><pre>
+<div class="viewcode-block" id="Calculator">
+<a class="viewcode-back" href="../../../src.calculator.html#src.calculator.calculator_impl.Calculator">[docs]</a>
+<span></span><span class="k">class</span><span class="w"> </span><span class="nc">Calculator</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Implementation of Singleton Calculator instance that performs calculations</span>
+<span class="sd">    on numbers given as inputs.</span>
+
+<span class="sd">    Numbers can be given in various forms: as int, float, double or as string</span>
+<span class="sd">    numbers, e.g. &quot;123&quot; or &quot;1.600&quot; or as Latin numbers &quot;X&quot;, as single digit</span>
+<span class="sd">    words: &quot;three&quot; (English, 3), &quot;cinco&quot; (Spanish, 5), &quot;семь&quot; (Russian, 7),</span>
+<span class="sd">    &quot;X&quot; (Latin, 10) or &quot;三&quot; (Chinese, sān 3).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">_instance</span> <span class="o">=</span> <span class="kc">None</span>
+
+<div class="viewcode-block" id="Calculator.add">
+<a class="viewcode-back" href="../../../src.calculator.html#src.calculator.calculator_impl.Calculator.add">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="n">_self</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">as_num</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">+</span> <span class="n">as_num</span><span class="p">(</span><span class="n">b</span><span class="p">)</span></div>
+
+    
+<div class="viewcode-block" id="Calculator.sub">
+<a class="viewcode-back" href="../../../src.calculator.html#src.calculator.calculator_impl.Calculator.sub">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">sub</span><span class="p">(</span><span class="n">_self</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">as_num</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">-</span> <span class="n">as_num</span><span class="p">(</span><span class="n">b</span><span class="p">)</span></div>
+
+    
+<div class="viewcode-block" id="Calculator.mul">
+<a class="viewcode-back" href="../../../src.calculator.html#src.calculator.calculator_impl.Calculator.mul">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">mul</span><span class="p">(</span><span class="n">_self</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">as_num</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">*</span> <span class="n">as_num</span><span class="p">(</span><span class="n">b</span><span class="p">)</span></div>
+
+    
+<div class="viewcode-block" id="Calculator.div">
+<a class="viewcode-back" href="../../../src.calculator.html#src.calculator.calculator_impl.Calculator.div">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">div</span><span class="p">(</span><span class="n">_self</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">as_num</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">/</span> <span class="n">as_num</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">ZeroDivisionError</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cannot divide by zero, return infinity.&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="s1">&#39;inf&#39;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Calculator.factorize">
+<a class="viewcode-back" href="../../../src.calculator.html#src.calculator.calculator_impl.Calculator.factorize">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">factorize</span><span class="p">(</span><span class="n">_self</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">factorize</span><span class="p">(</span><span class="n">as_num</span><span class="p">(</span><span class="n">n</span><span class="p">))</span></div>
+
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+    <span class="c1"># Singleton pattern by overloading the new operator, see</span>
+    <span class="c1"># https://stackoverflow.com/questions/31875/is-there-a-simple-elegant-way-to-define-singletons</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__new__</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_instance</span><span class="p">:</span>
+            <span class="bp">cls</span><span class="o">.</span><span class="n">_instance</span> <span class="o">=</span> <span class="nb">object</span><span class="o">.</span><span class="fm">__new__</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_instance</span></div>
+
+
+
+<span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="c1"># local functions to convert arg to number in order to perform calculations</span>
+<div class="viewcode-block" id="as_num">
+<a class="viewcode-back" href="../../../src.calculator.html#src.calculator.calculator_impl.as_num">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">as_num</span><span class="p">(</span><span class="n">arg</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">arg</span><span class="o">==</span><span class="kc">None</span> <span class="k">else</span> \
+        <span class="n">arg</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">arg</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">))</span> <span class="k">else</span> \
+        <span class="n">_str_val</span><span class="p">(</span><span class="n">arg</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">arg</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="k">else</span> \
+        <span class="n">_complex_val</span><span class="p">(</span><span class="n">arg</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">arg</span><span class="p">,</span> <span class="nb">complex</span><span class="p">)</span> <span class="k">else</span> <span class="mi">0</span></div>
+
+
+<span class="n">_numbers</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;zero&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">&quot;one&quot;</span><span class="p">:</span> <span class="mi">1</span> <span class="p">,</span> <span class="s2">&quot;two&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;three&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;four&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="s2">&quot;five&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+    <span class="s2">&quot;six&quot;</span><span class="p">:</span> <span class="mi">6</span> <span class="p">,</span> <span class="s2">&quot;seven&quot;</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span> <span class="s2">&quot;eight&quot;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span> <span class="s2">&quot;nine&quot;</span><span class="p">:</span> <span class="mi">9</span><span class="p">,</span> <span class="s2">&quot;ten&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+
+    <span class="c1"># no &#39;zero&#39; in latin numbers</span>
+    <span class="s2">&quot;i&quot;</span><span class="p">:</span> <span class="mi">1</span> <span class="p">,</span> <span class="s2">&quot;ii&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;iii&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;iv&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="s2">&quot;v&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+    <span class="s2">&quot;vi&quot;</span><span class="p">:</span> <span class="mi">6</span> <span class="p">,</span> <span class="s2">&quot;vii&quot;</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span> <span class="s2">&quot;viii&quot;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span> <span class="s2">&quot;ix&quot;</span><span class="p">:</span> <span class="mi">9</span><span class="p">,</span> <span class="s2">&quot;x&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+
+    <span class="s2">&quot;null&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">&quot;eins&quot;</span><span class="p">:</span> <span class="mi">1</span> <span class="p">,</span> <span class="s2">&quot;zwei&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;drei&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;vier&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="s2">&quot;fünf&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s2">&quot;fuenf&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+    <span class="s2">&quot;sechs&quot;</span><span class="p">:</span> <span class="mi">6</span> <span class="p">,</span> <span class="s2">&quot;sieben&quot;</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span> <span class="s2">&quot;acht&quot;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span> <span class="s2">&quot;neun&quot;</span><span class="p">:</span> <span class="mi">9</span><span class="p">,</span> <span class="s2">&quot;zehn&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+
+    <span class="s2">&quot;cero&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">&quot;uno&quot;</span><span class="p">:</span> <span class="mi">1</span> <span class="p">,</span> <span class="s2">&quot;dos&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;tres&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;cuatro&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="s2">&quot;cinco&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+    <span class="s2">&quot;seis&quot;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span> <span class="s2">&quot;siete&quot;</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span> <span class="s2">&quot;ocho&quot;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span> <span class="s2">&quot;nueve&quot;</span><span class="p">:</span> <span class="mi">9</span><span class="p">,</span> <span class="s2">&quot;diez&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+
+    <span class="s2">&quot;ноль&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">&quot;один&quot;</span><span class="p">:</span> <span class="mi">1</span> <span class="p">,</span> <span class="s2">&quot;два&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;три&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;четыре&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="s2">&quot;пять&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+    <span class="s2">&quot;шесть&quot;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span> <span class="s2">&quot;семь&quot;</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span> <span class="s2">&quot;восемь&quot;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span> <span class="s2">&quot;девять&quot;</span><span class="p">:</span> <span class="mi">9</span><span class="p">,</span> <span class="s2">&quot;десять&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+
+    <span class="s2">&quot;零&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">&quot;一&quot;</span><span class="p">:</span> <span class="mi">1</span> <span class="p">,</span> <span class="s2">&quot;二&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;三&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;四&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="s2">&quot;五&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+    <span class="s2">&quot;六&quot;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span> <span class="s2">&quot;七&quot;</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span> <span class="s2">&quot;八&quot;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span> <span class="s2">&quot;九&quot;</span><span class="p">:</span> <span class="mi">9</span><span class="p">,</span> <span class="s2">&quot;十&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_str_val</span><span class="p">(</span><span class="n">arg</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">arg</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">arg</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">_numbers</span><span class="p">[</span><span class="n">arg</span><span class="p">]</span>
+            <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="n">_numbers</span><span class="p">[</span><span class="n">arg</span><span class="o">.</span><span class="n">lower</span><span class="p">()]</span>
+                <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Cannot convert </span><span class="se">\&quot;</span><span class="si">{</span><span class="n">arg</span><span class="si">}</span><span class="se">\&quot;</span><span class="s1"> to number, 0 used&#39;</span><span class="p">)</span>
+                    <span class="k">return</span> <span class="mi">0</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_complex_val</span><span class="p">(</span><span class="n">arg</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mi">0</span>
+
+<div class="viewcode-block" id="factorize">
+<a class="viewcode-back" href="../../../src.calculator.html#src.calculator.calculator_impl.factorize">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">factorize</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="c1"># https://stackoverflow.com/questions/15347174/python-finding-prime-factors</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="n">factors</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">while</span> <span class="n">i</span> <span class="o">*</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="n">i</span><span class="p">:</span>
+            <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">n</span> <span class="o">//=</span> <span class="n">i</span>
+            <span class="n">factors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">factors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">factors</span></div>
+
+</pre></div>
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">py-fun 1.0.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" >Module code</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">src.calculator.calculator_impl</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2026, sgraupner.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    </div>
+  </body>
+</html>

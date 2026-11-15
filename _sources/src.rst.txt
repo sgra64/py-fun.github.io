@@ -1,0 +1,19 @@
+src package
+===========
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   src.calculator
+   src.collections
+
+Module contents
+---------------
+
+.. automodule:: src
+   :members:
+   :show-inheritance:
+   :undoc-members:

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>src.calculator.calculator &#8212; py-fun 1.0.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/classic.css?v=2bf1fcf8" />
+    
+    <script src="../../../_static/documentation_options.js?v=8d563738"></script>
+    <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">py-fun 1.0.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" accesskey="U">Module code</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">src.calculator.calculator</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for src.calculator.calculator</h1><div class="highlight"><pre>
+<div class="viewcode-block" id="Calculator">
+<a class="viewcode-back" href="../../../src.calculator.html#src.calculator.calculator.Calculator">[docs]</a>
+<span></span><span class="k">class</span><span class="w"> </span><span class="nc">Calculator</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Singleton Calculator instance performs basic calculations on numbers.</span>
+
+<span class="sd">    Numbers can be given in various forms: as int, float, double or as string</span>
+<span class="sd">    numbers, e.g. &quot;123&quot; or &quot;1.600&quot; or as Latin numbers &quot;X&quot;, as single digit</span>
+<span class="sd">    words: &quot;three&quot; (English, 3), &quot;cinco&quot; (Spanish, 5), &quot;семь&quot; (Russian, 7),</span>
+<span class="sd">    &quot;X&quot; (Latin, 10) or &quot;三&quot; (Chinese, sān 3).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="Calculator.add">
+<a class="viewcode-back" href="../../../src.calculator.html#src.calculator.calculator.Calculator.add">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="n">_self</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Add two numbers.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            a: the base number.</span>
+<span class="sd">            b: the number to add.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            The sum of both numbers.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            ValueError: If an input number is not valid or not understood.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span></div>
+
+    
+<div class="viewcode-block" id="Calculator.sub">
+<a class="viewcode-back" href="../../../src.calculator.html#src.calculator.calculator.Calculator.sub">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">sub</span><span class="p">(</span><span class="n">_self</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Subtract two numbers.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            a: the base number.</span>
+<span class="sd">            b: the number to subtract.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            The subtration of both numbers.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            ValueError: If an input number is not valid or not understood.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="mi">0</span></div>
+
+    
+<div class="viewcode-block" id="Calculator.mul">
+<a class="viewcode-back" href="../../../src.calculator.html#src.calculator.calculator.Calculator.mul">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">mul</span><span class="p">(</span><span class="n">_self</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Multiply two numbers.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            a: the base number.</span>
+<span class="sd">            b: the number to multiply.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            The product of both numbers.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            ValueError: If an input number is not valid or not understood.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="mi">0</span></div>
+
+    
+<div class="viewcode-block" id="Calculator.div">
+<a class="viewcode-back" href="../../../src.calculator.html#src.calculator.calculator.Calculator.div">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">div</span><span class="p">(</span><span class="n">_self</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Divide two numbers.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            a: the base number.</span>
+<span class="sd">            b: the number to divide.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            The division of both numbers.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            ValueError: If an input number is not valid or not understood.</span>
+<span class="sd">            ZeroDivisionError: If a division by 0 is attempted.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="mi">0</span></div>
+
+    
+<div class="viewcode-block" id="Calculator.factorize">
+<a class="viewcode-back" href="../../../src.calculator.html#src.calculator.calculator.Calculator.factorize">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">factorize</span><span class="p">(</span><span class="n">_self</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Factorize number into prime factors.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            n: the number to factorize into prime factors.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            The list of prime factors.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            ValueError: If an input number is not valid, not understood or negative.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">[]</span></div>
+
+
+    <span class="n">_instance</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span></div>
+
+
+    <span class="c1"># Singleton pattern by overloading the new operator, see</span>
+    <span class="c1"># https://stackoverflow.com/questions/31875/is-there-a-simple-elegant-way-to-define-singletons</span>
+</pre></div>
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">py-fun 1.0.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" >Module code</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">src.calculator.calculator</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2026, sgraupner.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    </div>
+  </body>
+</html>
